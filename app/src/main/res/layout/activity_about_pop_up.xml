@@ -24,7 +24,7 @@
             android:padding="10dp">
 
             <Button
-                android:id="@+id/close"
+                android:id="@+id/btnClose"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="end"

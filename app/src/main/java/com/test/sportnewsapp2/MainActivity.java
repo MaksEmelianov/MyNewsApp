@@ -1,5 +1,6 @@
 package com.test.sportnewsapp2;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     List<Articles> articles = new ArrayList<>();
     SwipeRefreshLayout swipeRefreshLayout;
     EditText editQuery;
-    Button searchButton;
+    Button searchButton, about;
+    Dialog dialog;
 
     public static final String CATEGORY = "sports";
     public static final String EMPTY = "";
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         editQuery = findViewById(R.id.edit_query);
         searchButton = findViewById(R.id.search_button);
+        about = findViewById(R.id.about);
+        dialog = new Dialog(MainActivity.this);
 
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -56,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 loadData(editQuery.getText().toString());
             }
+        });
+
+        about.setOnClickListener(v -> {
+            dialog.setContentView(R.layout.activity_about_pop_up);
+            dialog.show();
+            Button btnClose = dialog.findViewById(R.id.btnClose);
+            btnClose.setOnClickListener(v1 -> dialog.dismiss());
         });
     }
 
