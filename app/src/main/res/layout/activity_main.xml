@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SPORT NEWS"
+        android:fontFamily="@font/g_bold"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:textSize="30sp"
+        android:background="@color/white"
+        android:gravity="center"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </TextView>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/background"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:columnCount="2"
+        app:rowCount="1">
+
+        <EditText
+            android:id="@+id/edit_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:fontFamily="@font/g_bold"
+            android:hint="Search"
+            android:layout_margin="10dp"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColor="@color/grey"
+            android:textColorHint="@color/grey"
+            android:textSize="25sp"
+            app:layout_columnWeight="10"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:fontFamily="@font/g_bold"
+            android:layout_margin="7dp"
+            android:text="Search"
+            app:layout_columnWeight="1"
+            app:layout_column="1"
+            app:layout_row="0"
+            tools:ignore="RtlSymmetry,SpeakableTextPresentCheck" />
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swipeRefreshLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>
